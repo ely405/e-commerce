@@ -1,7 +1,13 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 const reducerFunction = (state, action) => {
     switch(action.type){
+        case 'LOAD_PRODUCTS':
+            return {
+                ...state,
+                products: action.products
+            }
+        break;
         case 'ADD_TO_CART':
             return {
                 ...state,
@@ -18,15 +24,15 @@ const reducerFunction = (state, action) => {
             }
         break;
     }
-
-    // if (action.type === 'ADD_TO_CART'){
-    //     return {
-    //         ...state,
-    //         cart: state.cart.concat(action.product)
-    //     }
-    // }
     return state;
 }
   
+const logger = store => next => action => {
+    console.log('dispatch action', action);
+    let result = next(action);
+    console.log('next state', store.getState());
+    return result;
+}
+
 //createStore(functionReducer, initialState)
-export default  createStore(reducerFunction, { cart: [] });
+export default  createStore(reducerFunction, { cart: [], products: [] }, applyMiddleware(logger));
