@@ -22,7 +22,7 @@ const ProductList = (props) => {
     return (
       <div style={styles.products}>
         {props.products.map(product =>
-          <div className="thumbnail" style={styles.product} key={product.id}>
+          <div className="thumbnail productContainer" style={styles.product} key={product.id}>
             <img src={product.image} alt={product.name} />
             <div className="caption">
               <h4>{product.name}</h4>
