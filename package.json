@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "https://github.com/ely405/shoppingCart.git",
   "devDependencies": {
+    "enzyme": "^3.3.0",
     "gh-pages": "^1.1.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-scripts": "0.8.5"
   },
   "dependencies": {

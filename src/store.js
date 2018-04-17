@@ -1,28 +1,25 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-const reducerFunction = (state, action) => {
+//combineReducer --> si el estado es "undefined" tomará el arreglo vacío
+const productReducer = (state = [], action) => {
+    if (action.type === 'LOAD_PRODUCTS'){
+        return action.products;
+    }
+    return state;
+}
+
+const cartReducer = (state = [], action) => {
     switch(action.type){
-        case 'LOAD_PRODUCTS':
-            return {
-                ...state,
-                products: action.products
-            }
-        break;
         case 'ADD_TO_CART':
-            return {
-                ...state,
-                cart: state.cart.concat(action.product)
-            }
+            console.log('action add to cart', action);
+            console.log('state', state);
+            return state.concat(action.product);
         break;
         case 'REMOVE_FROM_CART':
-            return {
-                ...state,
-                cart: state.cart.filter(product => {
+            return state.filter(product => {
                     console.log('state', state, 'action', action);
-                    console.log('produtc', product, action.product);
-                   return  product.id !== action.product.id})
-            }
+                   return  product.id !== action.product.id});
         break;
         default:
         break;
@@ -39,4 +36,14 @@ const logger = store => next => action => {
 
 //createStore(functionReducer, initialState)
 //thunk --> para poder invocar actiobes asincronas con dispatch
-export default  createStore(reducerFunction, { cart: [], products: [] }, applyMiddleware(logger, thunk));
+
+// const initialState = {
+//     cart: [],
+//     products: []
+// };
+
+const reducerCombined = combineReducers({ cart: cartReducer, products: productReducer });
+//combineReducer ignora el segundo parámetro de inicialización,
+//para definir el estado inicial llama cada uno de los reducer y le pasa un estado "undefined"
+//el estado inicial lo declaramos en el reducer
+export default  createStore(reducerCombined, applyMiddleware(logger, thunk));

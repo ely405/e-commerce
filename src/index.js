@@ -7,6 +7,8 @@ import './index.css';
 import { loadProductsAction } from './actionCreators';
 
 store.dispatch(loadProductsAction());
+var URLdomain = window.location.host;
+alert(URLdomain);
 ReactDOM.render(
   <Provider store={store}>
     <App />
