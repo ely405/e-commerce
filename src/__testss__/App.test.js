@@ -1,8 +1,10 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
 
-import { shallow } from "enzyme";
+import App from '../App';
+import setupTests from './setupTests';
+
+
 /*
   * shallow --> prueba el componente de forma aislada, sin renderizar los subcomponentes que tenga,
     ni ejecuta los métodos de ciclo de vida
@@ -12,6 +14,6 @@ import { shallow } from "enzyme";
     con API's del DOM o probar el ciclo de vida completo del componente
 */
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  // const div = document.createElement('div');
+  shallow(<App />);
 });

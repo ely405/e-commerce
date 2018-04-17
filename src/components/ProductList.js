@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
-// import store from '../store';
+
 import { addToCartAction } from '../actionCreators';
 
 const styles = {
@@ -52,4 +52,5 @@ const mapDispatchToProps = dispatch => {
    }
 }
 
+export { ProductList };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
