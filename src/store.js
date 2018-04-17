@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const reducerFunction = (state, action) => {
     switch(action.type){
@@ -23,6 +24,8 @@ const reducerFunction = (state, action) => {
                    return  product.id !== action.product.id})
             }
         break;
+        default:
+        break;
     }
     return state;
 }
@@ -35,4 +38,5 @@ const logger = store => next => action => {
 }
 
 //createStore(functionReducer, initialState)
-export default  createStore(reducerFunction, { cart: [], products: [] }, applyMiddleware(logger));
+//thunk --> para poder invocar actiobes asincronas con dispatch
+export default  createStore(reducerFunction, { cart: [], products: [] }, applyMiddleware(logger, thunk));

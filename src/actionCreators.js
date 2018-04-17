@@ -1,27 +1,14 @@
-const loadProductsAction = () => {
-    const products = [{
-            id: 1,
-            name: "Hipster Ultimate",
-            price: 299,
-            image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-1.jpg"
-        },
-        {
-            id: 2,
-            name: "On Motion Live",
-            price: 99,
-            image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-2.jpg"
-        },
-        {
-            id: 3,
-            name: "Underground Max",
-            price: 149,
-            image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-3.jpg"
-        },
-    ];
+import axios from 'axios';
 
-    return {
-        type: 'LOAD_PRODUCTS',
-        products
+const loadProductsAction = () => {
+    return dispatch => {
+        return axios.get("../products.json")
+        .then(res => {
+            dispatch({
+                type: 'LOAD_PRODUCTS',
+                products: res.data
+            });
+        });
     }
 }
 

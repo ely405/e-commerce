@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
