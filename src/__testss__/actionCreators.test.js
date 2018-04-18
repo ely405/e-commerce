@@ -1,7 +1,14 @@
-import { addToCartAction } from '../actionCreators';
+import { addToCartAction, loadProductsAction } from '../actionCreators';
 import configureStore from 'redux-mock-store';
 
-const mockStore = configureStore();
+import thunk from 'redux-thunk';
+import moxios from 'moxios';
+
+const middlewares = [ thunk ];
+const mockStore = configureStore(middlewares);
+
+beforeEach(() => moxios.install());
+afterEach(() => moxios.uninstall());
 
 describe('Testing actionCreators sync', () => {
     it('Add a product to cart', () => {
@@ -20,5 +27,24 @@ describe('Testing actionCreators sync', () => {
     });
 });
 
+describe('Testing async', () => {
+    it('Load products', () => {
+        const store = mockStore({ products: [] });
+        moxios.stubRequest('/products.json', {
+            status: 200,
+            response: [
+                { id: 1, name: 'prod 1', price: 1, image: ''},
+                { id: 2, name: 'prod 2', price: 4, image: ''}                
+            ]
+        });
 
-//test actionCreators sincrónico
+        return store.dispatch(loadProductsAction()).then(() => {
+            let actions = store.getActions();
+            expect(actions.length).toBe(1);
+            expect(actions[0].type).toBe('LOAD_PRODUCTS');
+            console.log('ACTIONS', actions);
+            expect(actions[0].products).not.toBeNull();
+            expect(actions[0].products.length).toBe(2);
+        })
+    });
+});
