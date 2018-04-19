@@ -36,15 +36,16 @@ const ProductList = (props) => {
     );
 }
 
+//para mandar la propiedades al componente
 const mapStateToProps = state => {
-  console.log('mapstate productlist', state);
+  // console.log('mapstate productlist', state);
   return {
-    products: state.products
+    products: state.products,
   }
 }
 
 const mapDispatchToProps = dispatch => {
-   console.log('dispatch product list', dispatch);
+  //  console.log('dispatch product list', dispatch);
    return {
      addToCart(product) {
        dispatch(addToCartAction(product))
