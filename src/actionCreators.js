@@ -35,9 +35,17 @@ const addASameProductAction = product => {
     }
 }
 
+const removeAProductAction = product => {
+    return {
+        type: 'REMOVE_A_PRODUCT',
+        product
+    }
+}
+
 export {
     loadProductsAction,
     addToCartAction,
     removeFromCartAction,
-    addASameProductAction
+    addASameProductAction,
+    removeAProductAction
 }

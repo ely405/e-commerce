@@ -20,17 +20,14 @@ const cartReducer = (state = [], action) => {
 
             let productToDispatch = [];
             productSorted.map((prodItem, i) => {
-                let num = 0;
                 if (i > 0) {
-                    if (prodItem.id != productSorted[i - 1].id) {
+                    if (prodItem.id !== productSorted[i - 1].id) {
                         productToDispatch.push(prodItem);
                     }
                 } else {
                     productToDispatch.push(prodItem);
                 }
             });
-            // console.log('PRODUCT TO DISPATCH', productToDispatch);
-
             return productToDispatch;
             break;
 
@@ -45,9 +42,24 @@ const cartReducer = (state = [], action) => {
 
         case 'ADD_A_SAME_PRODUCT':
             action.product.quantity += 1;
-            const indProduct = state.indexOf(action.product);
-            state.splice(indProduct, 1);
+            const indProductToAdd = state.indexOf(action.product);
+            state.splice(indProductToAdd, 1);
             return state.concat(action.product);
+            break;
+
+        case 'REMOVE_A_PRODUCT':
+
+            if(action.product.quantity <=  1){
+                return state.filter(product => {
+                    action.product.quantity = 0;
+                    return product.id !== action.product.id
+                });
+            } else {
+                action.product.quantity -= 1;
+                const indProductToRemove = state.indexOf(action.product);
+                state.splice(indProductToRemove, 1);
+                return state.concat(action.product);
+            }
             break;
         default:
             return state;
