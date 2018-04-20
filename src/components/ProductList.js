@@ -48,6 +48,7 @@ const mapDispatchToProps = dispatch => {
   //  console.log('dispatch product list', dispatch);
    return {
      addToCart(product) {
+       alert('disoatch add to cart');
        dispatch(addToCartAction(product))
      }
    }

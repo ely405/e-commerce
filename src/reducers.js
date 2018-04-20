@@ -11,23 +11,30 @@ const productReducer = (state = initialStateProduct, action) => {
 
 const cartReducer = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TO_CART':
-            // action.product.quantity = 1
-            // state.map((prod) => {
-            //     if(prod.id === action.product.id){
-            //         console.warn('PRODUCTOS IGUALES', action.product.quantity += 1);
-            //     }
-            // });
+
+        case 'ADD_TO_CART':     
+            action.product.quantity += 1;
             
-            const productsEquals = state.filter(prod => prod.id === action.product.id);
-            console.log('FILTER', productsEquals.length + 1);
-            const addQuantity = action.product.quantity = productsEquals.length + 1;
-            console.warn('cantidad', addQuantity);
-            return state.concat(action.product);
+            const allProduct = state.concat(action.product);
+            const productSorted = allProduct.sort((prod1, prod2) => prod1.price > prod2.price);
+
+            let productToDispatch = [];
+            productSorted.map((prodItem, i) => {
+                let num = 0;
+                if (i > 0) {
+                    if (prodItem.id != productSorted[i - 1].id) {
+                        productToDispatch.push(prodItem);
+                    }
+                } else {
+                    productToDispatch.push(prodItem);
+                }
+            });
+            console.log('PRODUCT TO DISPATCH', productToDispatch);
+
+            return productToDispatch;
             break;
         case 'REMOVE_FROM_CART':
             return state.filter(product => {
-                // console.log('state REMOVE', state, 'action', action);
                 return product.id !== action.product.id
             });
             break;

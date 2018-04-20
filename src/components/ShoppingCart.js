@@ -10,38 +10,28 @@ const styles = {
   }
 }
 
-
 // const shoppingCart = ({ cart, removeFromCart}) => {}
 const ShoppingCart = (props) => {
-    console.log('props component', props);
-    // const quantityProducts = (currentProductId) => {
-    //   let quantity = 0;
-    //   props.cart.map(el => {
-    //     console.log('e', el.id, currentProductId, el.id === currentProductId)
-    //     if(currentProductId === el.id) {
-    //       console.log('igual ' + el.name);
-    //       quantity += 1;
-    //     }
-    //   });
-    //   return quantity;
-    // }
+  console.log('props component', props);
     return (
       <Panel header="Shopping Cart">
         <Table fill>
           <tbody>
-            {props.cart.map((product, ind) =>
-              <tr key={ind}>
-                <td>{product.name}</td>
-                <td className="text-right">${product.price}</td>
-                <td className="quantity-product">{product.quantity}</td>
-                <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
-              </tr>
-            )}
+              {
+              props.cart.map((product, ind) => {
+                return (<tr key={ind} id={product.id}> 
+                  <td>{product.name}</td>
+                  <td className="text-right">${product.price}</td>
+                  <td className="quantity-product">{product.quantity}</td>
+                  <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
+                </tr>)
+              })
+            }
           </tbody>
           <tfoot>
             <tr>
               <td colSpan="4" style={styles.footer}>
-                Total: ${props.cart.reduce((sum, product) => sum + product.price, 0)}
+                Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
               </td>
             </tr>
           </tfoot>
@@ -68,18 +58,7 @@ const mapDispatchToProps = dispatch => {
   return {
     removeFromCart(product) {
       dispatch(removeFromCartAction(product));
-    },
-    // quantityProducts(currentProductId) {
-    //   let quantity = 0;
-    //   // props.cart.map(el => {
-    //   //   console.log('e', el.id, currentProductId, el.id === currentProductId)
-    //   //   if(currentProductId === el.id) {
-    //   //     console.log('igual ' + el.name);
-    //   //     quantity += 1;
-    //   //   }
-    //   // });
-    //   return quantity;
-    // }
+    }
   }
 }
 
