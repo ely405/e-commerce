@@ -29,10 +29,11 @@ const cartReducer = (state = [], action) => {
                     productToDispatch.push(prodItem);
                 }
             });
-            console.log('PRODUCT TO DISPATCH', productToDispatch);
+            // console.log('PRODUCT TO DISPATCH', productToDispatch);
 
             return productToDispatch;
             break;
+
         case 'REMOVE_FROM_CART':
             console.warn('REMOVE_FROM CART STATE', state);
             return state.filter(product => {
@@ -40,6 +41,13 @@ const cartReducer = (state = [], action) => {
                 action.product.quantity = 0;
                 return product.id !== action.product.id
             });
+            break;
+
+        case 'ADD_A_SAME_PRODUCT':
+            action.product.quantity += 1;
+            const indProduct = state.indexOf(action.product);
+            state.splice(indProduct, 1);
+            return state.concat(action.product);
             break;
         default:
             return state;

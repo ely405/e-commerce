@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { removeFromCartAction } from '../actionCreators';
+import { removeFromCartAction, addASameProductAction } from '../actionCreators';
 
 const styles = {
   footer: {
@@ -21,7 +21,7 @@ const ShoppingCart = (props) => {
                 return (<tr key={ind} id={product.id}> 
                   <td>{product.name}</td>
                   <td className="text-right">${product.price}</td>
-                  <td className="quantity-product">{product.quantity}</td>
+                  <td className="quantity-product">{product.quantity} <i onClick={() => props.addASameProduct(product)}>más</i></td>
                   <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
                 </tr>)
               })
@@ -58,6 +58,10 @@ const mapDispatchToProps = dispatch => {
   return {
     removeFromCart(product) {
       dispatch(removeFromCartAction(product));
+    },
+    addASameProduct(product) {
+      alert('agrega mas');
+      dispatch(addASameProductAction(product));
     }
   }
 }

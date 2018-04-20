@@ -28,8 +28,16 @@ const removeFromCartAction = product => {
     };
 }
 
+const addASameProductAction = product => {
+    return {
+        type: 'ADD_A_SAME_PRODUCT',
+        product
+    }
+}
+
 export {
     loadProductsAction,
     addToCartAction,
     removeFromCartAction,
+    addASameProductAction
 }
