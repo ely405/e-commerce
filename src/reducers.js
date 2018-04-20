@@ -34,7 +34,10 @@ const cartReducer = (state = [], action) => {
             return productToDispatch;
             break;
         case 'REMOVE_FROM_CART':
+            console.warn('REMOVE_FROM CART STATE', state);
             return state.filter(product => {
+                
+                action.product.quantity = 0;
                 return product.id !== action.product.id
             });
             break;

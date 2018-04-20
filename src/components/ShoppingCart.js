@@ -17,8 +17,7 @@ const ShoppingCart = (props) => {
       <Panel header="Shopping Cart">
         <Table fill>
           <tbody>
-              {
-              props.cart.map((product, ind) => {
+              {props.cart.map((product, ind) => {
                 return (<tr key={ind} id={product.id}> 
                   <td>{product.name}</td>
                   <td className="text-right">${product.price}</td>
@@ -45,9 +44,10 @@ const ShoppingCart = (props) => {
 //sería como los estados iniciales
 const mapStateToProps = state => {
   //state --> estado compartido de redux
-  console.log('state mapstatetoprops', state);
+  console.log('state MAPSTATEPROPS', state);
   return {
-    cart: state.cart
+    cart: state.cart,
+    // hola: 'hola',
   }
 }
 
