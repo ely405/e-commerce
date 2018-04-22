@@ -23,8 +23,8 @@ const ShoppingCart = (props) => {
                   <td className="p-05rm">${product.price}</td>
                   <td className="">
                     {product.quantity} 
-                    <i onClick={() => props.addASameProduct(product)}>más</i>
-                    <i onClick={() => props.removeAProduct(product)}>menos</i>
+                    <i onClick={() => props.addASameProduct(product)} className='icon-plus'/>
+                    <i onClick={() => props.removeAProduct(product)} className='icon-minus'/>
                   </td>
                   <td className="p-05rm"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
                 </tr>)
