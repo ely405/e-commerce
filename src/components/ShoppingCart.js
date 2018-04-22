@@ -19,14 +19,14 @@ const ShoppingCart = (props) => {
           <tbody>
               {props.cart.map((product, ind) => {
                 return (<tr key={ind} id={product.id}> 
-                  <td>{product.name}</td>
-                  <td className="text-right">${product.price}</td>
-                  <td className="quantity-product">
+                  <td className='p-05rm'>{product.name}</td>
+                  <td className="p-05rm">${product.price}</td>
+                  <td className="">
                     {product.quantity} 
                     <i onClick={() => props.addASameProduct(product)}>más</i>
                     <i onClick={() => props.removeAProduct(product)}>menos</i>
                   </td>
-                  <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
+                  <td className="p-05rm"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
                 </tr>)
               })
             }

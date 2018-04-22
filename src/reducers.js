@@ -43,8 +43,8 @@ const cartReducer = (state = [], action) => {
         case 'ADD_A_SAME_PRODUCT':
             action.product.quantity += 1;
             const indProductToAdd = state.indexOf(action.product);
-            state.splice(indProductToAdd, 1);
-            return state.concat(action.product);
+            state.splice(indProductToAdd, 1, action.product);
+            return state.filter(pro => pro);
             break;
 
         case 'REMOVE_A_PRODUCT':

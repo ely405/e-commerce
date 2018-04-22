@@ -1,36 +1,38 @@
 import React from 'react';
-import { Button, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
+// import { button } from 'reactstrap';
+
 import { connect } from 'react-redux';
 
 import { addToCartAction } from '../actionCreators';
 
-const styles = {
-  products: {
-    display: 'flex',
-    alignItems: 'stretch',
-    flexWrap: 'wrap'
-  },
-  product: {
-    width: '220px',
-    marginLeft: 10,
-    marginRight: 10
-  }
-};
+// const styles = {
+//   products: {
+//     display: 'flex',
+//     alignItems: 'stretch',
+//     flexWrap: 'wrap'
+//   },
+//   product: {
+//     width: '220px',
+//     marginLeft: 10,
+//     marginRight: 10
+//   }
+// };
 
 const ProductList = (props) => {
-  console.log('props, productlist', props);
+  // console.log('props, productlist', props);s
     return (
-      <div style={styles.products}>
+      <div className='grid-container grid-1234'>
         {props.products.map((product) =>
-          <div id={`product-${product.id}`} className="thumbnail productContainer" style={styles.product} key={product.id}>
+          <div id={`product-${product.id}`} className="productContainer grid-item" key={product.id}>
             <img src={product.image} alt={product.name} />
-            <div className="caption">
+            <div className="">
               <h4>{product.name}</h4>
               <p>
-                <Button bsStyle="primary" onClick={() => props.addToCart(product)} role="button" disabled={product.inventory <= 0}>${product.price} <Glyphicon glyph="shopping-cart" /></Button>
+                <button className='bg-main-color' onClick={() => props.addToCart(product)} role="button" disabled={product.inventory <= 0}>${product.price} <Glyphicon glyph="shopping-cart" /></button>
               </p>
             </div>
-          </div>
+      </div>
         )}
       </div>
     );
