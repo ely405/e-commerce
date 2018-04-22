@@ -1,23 +1,12 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+// import { Glyphicon } from 'react-bootstrap';
 // import { button } from 'reactstrap';
 
 import { connect } from 'react-redux';
 
 import { addToCartAction } from '../actionCreators';
 
-// const styles = {
-//   products: {
-//     display: 'flex',
-//     alignItems: 'stretch',
-//     flexWrap: 'wrap'
-//   },
-//   product: {
-//     width: '220px',
-//     marginLeft: 10,
-//     marginRight: 10
-//   }
-// };
+import './ProductList.css';
 
 const ProductList = (props) => {
   // console.log('props, productlist', props);s
@@ -25,11 +14,13 @@ const ProductList = (props) => {
       <div className='grid-container grid-1234'>
         {props.products.map((product) =>
           <div id={`product-${product.id}`} className="productContainer grid-item" key={product.id}>
-            <img src={product.image} alt={product.name} />
+            <div className='product__imgage-container over-hidden'>
+              <img src={product.image} alt={product.name}  className='product__image'/>
+            </div>
             <div className="">
               <h4>{product.name}</h4>
               <p>
-                <button className='bg-main-color' onClick={() => props.addToCart(product)} role="button" disabled={product.inventory <= 0}>${product.price} <Glyphicon glyph="shopping-cart" /></button>
+                <button className='bg-main-color' onClick={() => props.addToCart(product)} role="button" disabled={product.inventory <= 0}><i className='icon-dollar'/>{product.price} <i className='icon-shopping-cart'/></button>
               </p>
             </div>
       </div>

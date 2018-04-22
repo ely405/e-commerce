@@ -12,6 +12,11 @@ body {
   /* font-family: sans-serif; */
 }
 
+img {
+  object-fit: cover;
+  width: 100%;
+}
+
 .bg-main-color{
   background: var(--main-color);
 }
@@ -19,4 +24,9 @@ body {
 /* padding */
 .p-05rm{
   padding: 0.5rem;
+}
+
+
+.over-hidden{
+  overflow: hidden;
 }
