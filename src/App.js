@@ -15,11 +15,12 @@ class App extends Component {
           </Navbar.Header>
         </Navbar> */}
 
-        <header className='ed-item'>
+        <header className='main-header ed-item s-cross-center s-justify'>
           <h1>Ecomerce</h1>
+          <i className='icon-shopping-bag' onMouseOver={() => console.log('over')} onMouseOut={() => console.log('out')}/>
         </header>
 
-        <section className='ed-item s-80 m-100'>
+        <section className='main-content ed-item s-80 m-100'>
               <ProductList />
               <ShoppingCart />
         </section>

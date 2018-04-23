@@ -29,6 +29,7 @@
 }
 .icon-shopping-bag:before {
   content: "\e900";
+  font-size: 1.5rem;
 }
 .icon-shopping-cart:before {
   content: "\e93a";
@@ -41,4 +42,8 @@
 }
 .icon-minus:before {
   content: "\ea0b";
+}
+
+.icon-05x{
+  font-size: 0.5rem;
 }

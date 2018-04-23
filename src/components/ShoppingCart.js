@@ -1,8 +1,10 @@
 import React from 'react';
-import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import { removeFromCartAction, addASameProductAction, removeAProductAction } from '../actionCreators';
+
+import './ShoppingCart.css';
 
 const styles = {
   footer: {
@@ -14,33 +16,35 @@ const styles = {
 const ShoppingCart = (props) => {
   console.log('props component', props);
     return (
-      <Panel header="Shopping Cart">
-        <Table fill>
-          <tbody>
+      // <Panel header="Shopping">
+        <section className='m-30'>
               {props.cart.map((product, ind) => {
-                return (<tr key={ind} id={product.id}> 
-                  <td className='p-05rm'>{product.name}</td>
-                  <td className="p-05rm">${product.price}</td>
-                  <td className="">
-                    {product.quantity} 
-                    <i onClick={() => props.addASameProduct(product)} className='icon-plus'/>
-                    <i onClick={() => props.removeAProduct(product)} className='icon-minus'/>
-                  </td>
-                  <td className="p-05rm"><Button bsSize="xsmall" bsStyle="danger" onClick={() => props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
-                </tr>)
+                return (<article key={ind} id={product.id} className='shopping-cart ed-container main-justify p-05rm'> 
+                  <div className='p-03rm s-80'>{product.name}</div>
+                  <div className="p-03rm ed-item s-20 text-right"><span>${product.price}</span></div>
+                  <button onClick={() => props.removeFromCart(product)} className='p-03rm'><i className='icon-trash'/></button>
+                  <div className="shopping-cart__quantity s-50 m-50 l-35 text-right">
+                    <button onClick={() => props.removeAProduct(product)} type='button' className='shopping-cart__button bg-trans s-1-3 c-white p-03rm'>
+                      <i className='icon-minus icon-05x'/>
+                    </button>
+                    <input readOnly='readonly' value={product.quantity} className='shopping-cart__quantity__input s-1-3 p-03rm bg-trans c-white text-center'/>
+                    <button className='shopping-cart__button bg-trans s-1-3 c-white p-03rm' type='button' onClick={() => props.addASameProduct(product)}>
+                      <i className='icon-plus icon-05x'/>
+                    </button>
+                  </div>
+                </article>)
               })
             }
-          </tbody>
           <tfoot>
             <tr>
-              <td colSpan="4" style={styles.footer}>
+              <div colSpan="4" style={styles.footer}>
                 Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
-              </td>
+              </div>
             </tr>
           </tfoot>
-        </Table>
+        </section>
 
-      </Panel>
+      // </Panel>
     )
 }
 

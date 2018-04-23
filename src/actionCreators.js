@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const loadProductsAction = () => {
     return dispatch => {
-        return axios.get("/products.json")
+        return axios.get("./products.json")
         .then(res => {
             dispatch({
                 type: 'LOAD_PRODUCTS',
@@ -13,7 +13,7 @@ const loadProductsAction = () => {
 }
 
 const addToCartAction = product => {
-    console.log('addtocartaction', product);
+    // console.log('addtocartaction', product);
 
     return {
         type: 'ADD_TO_CART',

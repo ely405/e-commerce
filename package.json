@@ -2,7 +2,7 @@
   "name": "redux-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ely405.github.io/shoppingCart/-",
+  "homepage": "https://ely405.github.io/shoppingCart",
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
