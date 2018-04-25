@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { removeFromCartAction, addASameProductAction, removeAProductAction } from '../actionCreators';
+import { removeFromCartAction, addASameProductAction, removeAProductAction } from '../../../actionCreators';
 
 import './ShoppingCart.css';
 
@@ -14,15 +14,16 @@ const styles = {
 
 // const shoppingCart = ({ cart, removeFromCart}) => {}
 const ShoppingCart = (props) => {
-  console.log('props component', props);
+  console.log('props component shoppingcart', props);
     return (
       // <Panel header="Shopping">
-        <section className='m-30'>
+        <section className='m-60 s-80 l-40 xl-30'>
               {props.cart.map((product, ind) => {
-                return (<article key={ind} id={product.id} className='shopping-cart ed-container main-justify p-05rm'> 
-                  <div className='p-03rm s-80'>{product.name}</div>
+                return (<article key={ind} id={product.id} className='shopping-cart ed-container main-justify p-05rm' onClick={(e) => e.stopPropagation()}>
+                  <div className='shopping-cart__image s-30'><img src={product.image}/></div> 
+                  <p className='p-03rm s-50'>{product.name}</p>
                   <div className="p-03rm ed-item s-20 text-right"><span>${product.price}</span></div>
-                  <button onClick={() => props.removeFromCart(product)} className='p-03rm'><i className='icon-trash'/></button>
+                  <a onClick={() => props.removeFromCart(product)} className='p-03rm'><i className='icon-trash'/><small>Eliminar</small></a>
                   <div className="shopping-cart__quantity s-50 m-50 l-35 text-right">
                     <button onClick={() => props.removeAProduct(product)} type='button' className='shopping-cart__button bg-trans s-1-3 c-white p-03rm'>
                       <i className='icon-minus icon-05x'/>
@@ -55,7 +56,7 @@ const mapStateToProps = state => {
   console.log('state MAPSTATEPROPS', state);
   return {
     cart: state.cart,
-    // hola: 'hola',
+    // idShoppingCart: 'modalContainerInShoppingCart'
   }
 }
 

@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { productReducer, cartReducer} from './reducers';
+import { productReducer, cartReducer, modalReducer } from './reducers';
 // import * as reducers from './reducers';
 
 const logger = store => next => action => {
@@ -14,7 +14,7 @@ const logger = store => next => action => {
 //createStore(functionReducer, initialState)
 //thunk --> para poder invocar actiobes asincronas con dispatch
 
-const reducerCombined = combineReducers({ cart: cartReducer, products: productReducer });
+const reducerCombined = combineReducers({ cart: cartReducer, products: productReducer, modal: modalReducer});
 //combineReducer ignora el segundo parámetro de inicialización,
 //para definir el estado inicial llama cada uno de los reducer y le pasa un estado "undefined"
 //el estado inicial lo declaramos en el reducer

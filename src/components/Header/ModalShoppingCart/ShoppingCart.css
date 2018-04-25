@@ -2,6 +2,10 @@
     border-bottom: 2px solid white;
 }
 
+.shopping-cart__image{
+    height: 5rem;
+}
+
 .shopping-cart__quantity{
     /* height: 50px; */
     width: 100%;

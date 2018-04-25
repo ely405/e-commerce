@@ -42,10 +42,18 @@ const removeAProductAction = product => {
     }
 }
 
+const showAndHideModalAction = (idElementToShowInModal) => {
+    return {
+        type: 'SHOW_AND_HIDE_MODAL',
+        idElementToShowInModal
+    }
+}
+
 export {
     loadProductsAction,
     addToCartAction,
     removeFromCartAction,
     addASameProductAction,
-    removeAProductAction
+    removeAProductAction,
+    showAndHideModalAction
 }

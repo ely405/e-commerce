@@ -67,7 +67,33 @@ const cartReducer = (state = [], action) => {
     }
 }
 
+const modalReducer = (state = false, action) => {
+    switch (action.type) {
+
+        case 'SHOW_AND_HIDE_MODAL':
+            alert('click' + state);
+        
+            console.log('estado modla', state);
+            console.log('SHOW AND HIDE', action, 'elemento', document.getElementById(`${action.idElementToShowInModal}`));
+            
+            if(state === false){
+                document.getElementById(`${action.idElementToShowInModal}`).style.display = 'flex';
+                return true;
+            }else{
+                document.getElementById(`${action.idElementToShowInModal}`).style.display = 'none';
+                return false;
+            }
+
+            // return (state === false)? true : false;
+            break;
+        default:
+            return state;
+            break;
+    }
+}
+
 export {
     productReducer,
     cartReducer,
+    modalReducer,
 }
