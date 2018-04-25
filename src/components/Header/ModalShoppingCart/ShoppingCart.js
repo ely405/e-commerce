@@ -1,5 +1,4 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import { removeFromCartAction, addASameProductAction, removeAProductAction } from '../../../actionCreators';
@@ -12,11 +11,8 @@ const styles = {
   }
 }
 
-// const shoppingCart = ({ cart, removeFromCart}) => {}
 const ShoppingCart = (props) => {
-  console.log('props component shoppingcart', props);
     return (
-      // <Panel header="Shopping">
         <section className='m-60 s-80 l-40 xl-30'>
               {props.cart.map((product, ind) => {
                 return (<article key={ind} id={product.id} className='shopping-cart ed-container main-justify p-05rm' onClick={(e) => e.stopPropagation()}>
@@ -36,16 +32,10 @@ const ShoppingCart = (props) => {
                 </article>)
               })
             }
-          <tfoot>
-            <tr>
-              <div colSpan="4" style={styles.footer}>
-                Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
-              </div>
-            </tr>
-          </tfoot>
+          <div colSpan="4" style={styles.footer}>
+            Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
+          </div>
         </section>
-
-      // </Panel>
     )
 }
 

@@ -13,8 +13,6 @@ const loadProductsAction = () => {
 }
 
 const addToCartAction = product => {
-    // console.log('addtocartaction', product);
-
     return {
         type: 'ADD_TO_CART',
         product,

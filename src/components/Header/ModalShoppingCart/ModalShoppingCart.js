@@ -10,6 +10,7 @@ import './ModalShoppingCart.css';
 const ModalShoppingCart = (props) => {
     return(
         <div>
+            <span className='shopping-bag__counter'>{props.productsInShoppingCart.reduce((sum, product) => sum + product.quantity, 0)}</span>
             <i className='icon-shopping-bag' onClick={() => props.showAndHideModal('modalContainerInShoppingCart')}/>  
             <div id='modalContainerInShoppingCart' className='s-main-center' onClick={(e) => {props.showAndHideModal('modalContainerInShoppingCart')}}>
               <ShoppingCart/>
@@ -20,14 +21,13 @@ const ModalShoppingCart = (props) => {
 
 const mapStateToProps = state => {
     return {
-      // products: state.products,
+      productsInShoppingCart: state.cart,
     }
   }
   
 const mapDispatchToProps = dispatch => {
   return {
     showAndHideModal(idElement) {
-      console.log('event target', event);
       dispatch(showAndHideModalAction(idElement));
     }
   }

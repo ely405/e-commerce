@@ -16,7 +16,7 @@ const cartReducer = (state = [], action) => {
             action.product.quantity += 1;
             
             const allProduct = state.concat(action.product);
-            const productSorted = allProduct.sort((prod1, prod2) => prod1.price > prod2.price);
+            const productSorted = allProduct.sort((prod1, prod2) => prod1.id > prod2.id);
 
             let productToDispatch = [];
             productSorted.map((prodItem, i) => {
@@ -28,11 +28,13 @@ const cartReducer = (state = [], action) => {
                     productToDispatch.push(prodItem);
                 }
             });
+            console.warn('PRODUCTRP', productToDispatch);
             return productToDispatch;
+
             break;
 
         case 'REMOVE_FROM_CART':
-            console.warn('REMOVE_FROM CART STATE', state);
+            // console.warn('REMOVE_FROM CART STATE', state);
             return state.filter(product => {
                 
                 action.product.quantity = 0;
