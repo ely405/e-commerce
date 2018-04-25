@@ -22,3 +22,68 @@
     z-index: 800;
     display: none;
 }
+
+@-webkit-keyframes moving-shopping-cart-left-to-right {
+	to {
+        color: deeppink;
+        left: 0;
+	}
+	from {
+        color: pink;
+        right: 0
+	}
+}
+
+@keyframes moving-shopping-cart-left-to-right {
+	0% {
+		/* color: #C51162; */
+		/* -ms-transform: scale(2, 2);
+		-webkit-transform: scale(2, 2);
+        transform: scale(1.5, 1.5); */
+        left: 0;
+    }
+     50% {
+        left: 100%;
+    }/*
+    75% {
+        left: ;: 75%;
+    } */
+	100% {
+		/* color: pink; */
+		/* -ms-transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+        transform: scale(1, 1); */
+        left: 50%;
+	}
+}
+
+.icon-shopping-animation{
+    position: absolute;
+    /* animation-iteration-count: 5; */
+    /* z-index: 1000; */
+    /* color: white; */
+    -webkit-animation-name: moving-shopping-cart-left-to-right;
+    -webkit-animation-duration: 1s;
+    animation-name: moving-shopping-cart-left-to-rightx x;
+    animation-duration: 1s;
+    /* animation-direction: alternate; */
+}
+
+
+/* .skills-icons {
+	& li {
+		transition-duration: 1s;
+	}
+	& li:hover {
+		color: pink;
+		animation-iteration-count: 2;
+		-webkit-animation-name: skills-icons-animation;
+		-webkit-animation-duration: 4s;
+		animation-name: skills-icons-animation;
+		animation-duration: 0.5s;
+		animation-direction: alternate;
+		& p {
+			display: none;
+		}
+	}
+} */

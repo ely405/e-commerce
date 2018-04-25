@@ -29,18 +29,10 @@ button, input {
   outline: none;
 }
 
-.main-header{
-  height: 4rem;
-  background-color: var(--bg-dark);
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
+.p-rel{
+  position: relative;
 }
 
-.main-content{
-  padding-top: 4rem;
-}
 .bg-main-color{
   background-color: var(--main-color);
 }
@@ -76,4 +68,17 @@ button, input {
 
 .text-center{
   text-align: center;
+}
+
+.main-header{
+  height: 4rem;
+  background-color: var(--bg-dark);
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+}
+
+.main-content{
+  padding-top: 4rem;
 }

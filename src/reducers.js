@@ -25,9 +25,13 @@ const cartReducer = (state = [], action) => {
                     productToDispatch.push(prodItem);
                 }
             });
-
             document.getElementById('productAdded__message').style.display = 'block';
-            setTimeout(()=> document.getElementById('productAdded__message').style.display = 'none', 2000)
+            document.querySelector(`#product-${action.product.id} .icon-shopping-cart`).className = 'icon-shopping-cart icon-shopping-animation';
+            
+            setTimeout(()=> {
+                document.getElementById('productAdded__message').style.display = 'none';
+                document.querySelector(`#product-${action.product.id} .icon-shopping-cart`).className = 'icon-shopping-cart';
+            }, 1200)
             return productToDispatch;
 
             break;
