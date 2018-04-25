@@ -9,7 +9,9 @@ const productReducer = (state = [], action) => {
 const cartReducer = (state = [], action) => {
     switch (action.type) {
 
-        case 'ADD_TO_CART':     
+        case 'ADD_TO_CART':    
+            // alert('Producto agregado'); 
+            console.log('mensjse', document.getElementById('productAdded__message'));
             action.product.quantity += 1;
             
             const allProduct = state.concat(action.product);
@@ -25,6 +27,11 @@ const cartReducer = (state = [], action) => {
                     productToDispatch.push(prodItem);
                 }
             });
+
+            console.warn('PRODUCT', productToDispatch);
+            document.getElementById('productAdded__message').style.display = 'block';
+            setInterval(()=> document.getElementById('productAdded__message').style.display = 'none', 2000
+            )
             return productToDispatch;
 
             break;

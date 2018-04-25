@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { removeFromCartAction, addASameProductAction, removeAProductAction } from '../../../actionCreators';
 
+import TotalToPay from './TotalToPay';
+
 import './ShoppingCart.css';
 
 const ShoppingCart = (props) => {
@@ -27,8 +29,8 @@ const ShoppingCart = (props) => {
               })
             }
           <div className='p-05rm'>
-            Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
-          </div>
+            {(props.cart.length >= 1) ? <TotalToPay/> : 'Agrega productos al carrito de compras!'}
+          </div >
         </section>
     )
 }

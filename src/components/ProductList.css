@@ -6,10 +6,27 @@
     transition: all 0.5s ease-in-out;
 }
 
+.product__button{
+    visibility: hidden;
+}
+
 .product-container:hover .product__image{
     transform: scale(1.2);
 }
 
 .product-container:hover .product__name{
     color: green;
+}
+
+.product-container:hover .product__button{
+    visibility: visible;
+}
+
+#productAdded__message{
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    left: 0;
+    z-index: 800;
+    display: none;
 }

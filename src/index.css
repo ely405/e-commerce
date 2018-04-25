@@ -15,6 +15,10 @@ body {
   padding: 0;
 }
 
+a{
+  cursor: pointer;
+}
+
 img {
   object-fit: cover;
   width: 100%;

@@ -12,7 +12,7 @@ const loadProductsAction = () => {
     }
 }
 
-const addToCartAction = product => {
+const addToCartAction = (product, sms)=> {
     return {
         type: 'ADD_TO_CART',
         product,
