@@ -37,7 +37,7 @@ const ShoppingCart = (props) => {
 //sería como los estados iniciales
 const mapStateToProps = state => {
   //state --> estado compartido de redux
-  console.log('state MAPSTATEPROPS', state);
+  // console.log('state MAPSTATEPROPS', state);
   return {
     cart: state.cart,
     // idShoppingCart: 'modalContainerInShoppingCart'
@@ -53,11 +53,9 @@ const mapDispatchToProps = dispatch => {
       dispatch(removeFromCartAction(product));
     },
     addASameProduct(product) {
-      alert('agrega mas');
       dispatch(addASameProductAction(product));
     },
     removeAProduct(product) {
-      alert('quita');
       dispatch(removeAProductAction(product));
     }
   }

@@ -58,8 +58,8 @@ const cartReducer = (state = [], action) => {
             } else {
                 action.product.quantity -= 1;
                 const indProductToRemove = state.indexOf(action.product);
-                state.splice(indProductToRemove, 1);
-                return state.concat(action.product);
+                state.splice(indProductToRemove, 1, action.product);
+                return state.filter(pro => pro);
             }
             break;
         default:

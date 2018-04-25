@@ -1,47 +1,47 @@
 [{
         "id": 1,
-        "name": "Hipster Ultimate",
+        "name": "Camiseta azul claro",
         "price": 79,
         "image": "./image/camiseta_azul_claro.jpg",
         "quantity": 0
     },
     {
         "id": 2,
-        "name": "On Motion Live",
+        "name": "Camiseta azul",
         "price": 99,
         "image": "./image/camiseta_azul_eliott.jpg",
         "quantity": 0     
     },
     {
         "id": 3,
-        "name": "Underground Max",
+        "name": "Camiseta blanco floral",
         "price": 89,
         "image": "./image/camiseta_blanco_floral_pacific.jpg",
         "quantity": 0       
     },{
         "id": 4,
-        "name": "Hipster Ultimate",
+        "name": "Camiseta estampado beige",
         "price": 89,
         "image": "./image/camiseta_estampado_beige_palyero.jpg",
         "quantity": 0
     },
     {
         "id": 5,
-        "name": "On Motion Live",
+        "name": "Polo gris manga corta",
         "price": 39,
         "image": "./image/camiseta_gris_manga_corta.jpg",
         "quantity": 0     
     },
     {
         "id": 6,
-        "name": "Underground Max",
+        "name": "Polo gris con rayas verdes",
         "price": 39,
         "image": "./image/camiseta_gris_rayas_verde.jpg",
         "quantity": 0       
     },
     {
         "id": 7,
-        "name": "Underground Max",
+        "name": "Polo manga larga gris",
         "price": 69,
         "image": "./image/camiseta_manga_larga_gris_allegiany.jpg",
         "quantity": 0       
