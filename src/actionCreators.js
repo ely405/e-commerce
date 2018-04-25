@@ -12,11 +12,18 @@ const loadProductsAction = () => {
     }
 }
 
-const addToCartAction = (product, sms)=> {
+const addToCartAction = (product)=> {
     return {
         type: 'ADD_TO_CART',
         product,
     };
+}
+
+const payForProductsAction = productsInCart => {
+    return {
+        type: 'PAY_FOR_PRODUCTS',
+        productsInCart
+    }
 }
 
 const removeFromCartAction = product => {
@@ -50,8 +57,9 @@ const showAndHideModalAction = (idElementToShowInModal) => {
 export {
     loadProductsAction,
     addToCartAction,
+    payForProductsAction,
     removeFromCartAction,
     addASameProductAction,
     removeAProductAction,
-    showAndHideModalAction
+    showAndHideModalAction,
 }

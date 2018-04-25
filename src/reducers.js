@@ -10,8 +10,6 @@ const cartReducer = (state = [], action) => {
     switch (action.type) {
 
         case 'ADD_TO_CART':    
-            // alert('Producto agregado'); 
-            console.log('mensjse', document.getElementById('productAdded__message'));
             action.product.quantity += 1;
             
             const allProduct = state.concat(action.product);
@@ -28,10 +26,8 @@ const cartReducer = (state = [], action) => {
                 }
             });
 
-            console.warn('PRODUCT', productToDispatch);
             document.getElementById('productAdded__message').style.display = 'block';
-            setInterval(()=> document.getElementById('productAdded__message').style.display = 'none', 2000
-            )
+            setTimeout(()=> document.getElementById('productAdded__message').style.display = 'none', 2000)
             return productToDispatch;
 
             break;
@@ -64,6 +60,14 @@ const cartReducer = (state = [], action) => {
                 state.splice(indProductToRemove, 1, action.product);
                 return state.filter(pro => pro);
             }
+            break;
+        
+        case 'PAY_FOR_PRODUCTS':
+            state.map(prod => {
+                prod.quantity = 0
+                return prod;
+            });
+            return state.filter(pro => pro.quantity !== 0)
             break;
         default:
             return state;

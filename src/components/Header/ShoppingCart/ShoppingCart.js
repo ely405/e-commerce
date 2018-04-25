@@ -28,9 +28,9 @@ const ShoppingCart = (props) => {
                 </article>)
               })
             }
-          <div className='p-05rm'>
+          {/* <div className='p-05rm'> */}
             {(props.cart.length >= 1) ? <TotalToPay/> : 'Agrega productos al carrito de compras!'}
-          </div >
+          {/* </div > */}
         </section>
     )
 }
