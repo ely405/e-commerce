@@ -1,8 +1,5 @@
 //declaramos el estado inicial en state
-
-const initialStateProduct = []
-
-const productReducer = (state = initialStateProduct, action) => {
+const productReducer = (state = [], action) => {
     if (action.type === 'LOAD_PRODUCTS') {
         return action.products;
     }
@@ -28,7 +25,6 @@ const cartReducer = (state = [], action) => {
                     productToDispatch.push(prodItem);
                 }
             });
-            console.warn('PRODUCTRP', productToDispatch);
             return productToDispatch;
 
             break;
