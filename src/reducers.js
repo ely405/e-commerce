@@ -34,7 +34,6 @@ const cartReducer = (state = [], action) => {
             break;
 
         case 'REMOVE_FROM_CART':
-            // console.warn('REMOVE_FROM CART STATE', state);
             return state.filter(product => {
                 
                 action.product.quantity = 0;
@@ -73,11 +72,6 @@ const modalReducer = (state = false, action) => {
     switch (action.type) {
 
         case 'SHOW_AND_HIDE_MODAL':
-            alert('click' + state);
-        
-            console.log('estado modla', state);
-            console.log('SHOW AND HIDE', action, 'elemento', document.getElementById(`${action.idElementToShowInModal}`));
-            
             if(state === false){
                 document.getElementById(`${action.idElementToShowInModal}`).style.display = 'flex';
                 return true;
@@ -85,8 +79,6 @@ const modalReducer = (state = false, action) => {
                 document.getElementById(`${action.idElementToShowInModal}`).style.display = 'none';
                 return false;
             }
-
-            // return (state === false)? true : false;
             break;
         default:
             return state;

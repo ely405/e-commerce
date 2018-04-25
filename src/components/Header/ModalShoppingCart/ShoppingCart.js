@@ -5,12 +5,6 @@ import { removeFromCartAction, addASameProductAction, removeAProductAction } fro
 
 import './ShoppingCart.css';
 
-const styles = {
-  footer: {
-    fontWeight: 'bold'
-  }
-}
-
 const ShoppingCart = (props) => {
     return (
         <section className='m-60 s-80 l-40 xl-30'>
@@ -19,7 +13,7 @@ const ShoppingCart = (props) => {
                   <div className='shopping-cart__image s-30'><img src={product.image}/></div> 
                   <p className='p-03rm s-50'>{product.name}</p>
                   <div className="p-03rm ed-item s-20 text-right"><span>${product.price}</span></div>
-                  <a onClick={() => props.removeFromCart(product)} className='p-03rm'><i className='icon-trash'/><small>Eliminar</small></a>
+                  <a onClick={() => props.removeFromCart(product)} className='p-03rm'><small>Eliminar</small></a>
                   <div className="shopping-cart__quantity s-50 m-50 l-35 text-right">
                     <button onClick={() => props.removeAProduct(product)} type='button' className='shopping-cart__button bg-trans s-1-3 c-white p-03rm'>
                       <i className='icon-minus icon-05x'/>
@@ -32,7 +26,7 @@ const ShoppingCart = (props) => {
                 </article>)
               })
             }
-          <div colSpan="4" style={styles.footer}>
+          <div className='p-05rm'>
             Total: ${props.cart.reduce((sum, product) => sum + product.price * product.quantity, 0)}
           </div>
         </section>
