@@ -45,5 +45,11 @@
         "price": 69,
         "image": "./image/camiseta_manga_larga_gris_allegiany.jpg",
         "quantity": 0       
+    },{
+        "id": 8,
+        "name": "Polo azul con cuello camisero",
+        "price": 69,
+        "image": "./image/camiseta_azul_cuello_camisa.jpg",
+        "quantity": 0       
     }
 ]
