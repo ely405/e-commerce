@@ -26,6 +26,13 @@ const payForProductsAction = productsInCart => {
     }
 }
 
+const SuccessMessageAction = (e) => {
+    return {
+        type: 'PAY_FOR_PRODUCTS',
+        e
+    }
+}
+
 const removeFromCartAction = product => {
     return {
         type: 'REMOVE_FROM_CART',
@@ -58,6 +65,7 @@ export {
     loadProductsAction,
     addToCartAction,
     payForProductsAction,
+    SuccessMessageAction,
     removeFromCartAction,
     addASameProductAction,
     removeAProductAction,

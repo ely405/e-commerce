@@ -13,7 +13,6 @@ const ModalShoppingCart = (props) => {
             <span className='shopping-bag__counter'>{props.productsInShoppingCart.reduce((sum, product) => sum + product.quantity, 0)}</span>
             <a onClick={() => props.showAndHideModal('modalContainerInShoppingCart')}><i className='icon-shopping-bag'/></a>
             <div id='modalContainerInShoppingCart' className='s-main-center' onClick={(e) => {props.showAndHideModal('modalContainerInShoppingCart')}}>
-              <span>x</span>
               <ShoppingCart/>
             </div>      
         </div>

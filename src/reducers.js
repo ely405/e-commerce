@@ -31,7 +31,7 @@ const cartReducer = (state = [], action) => {
             setTimeout(()=> {
                 document.getElementById('productAdded__message').style.display = 'none';
                 document.querySelector(`#product-${action.product.id} .icon-shopping-cart`).className = 'icon-shopping-cart';
-            }, 1200)
+            }, 1200);
             return productToDispatch;
 
             break;
@@ -97,8 +97,20 @@ const modalReducer = (state = false, action) => {
     }
 }
 
+const successMessageReducer = (state = false, action) => {
+    switch (action.type) {
+        case 'PAY_FOR_PRODUCTS':
+            console.log('success pay', action, state);
+            break;
+        default:
+            return state;
+            break;
+    }
+}
+
 export {
     productReducer,
     cartReducer,
     modalReducer,
+    successMessageReducer,
 }
