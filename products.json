@@ -1,26 +1,26 @@
 [{
         "id": 1,
-        "name": "Camiseta azul claro",
+        "name": "Polo azul claro",
         "price": 79,
         "image": "./image/camiseta_azul_claro.jpg",
         "quantity": 0
     },
     {
         "id": 2,
-        "name": "Camiseta azul",
+        "name": "Polo azul",
         "price": 99,
         "image": "./image/camiseta_azul_eliott.jpg",
         "quantity": 0     
     },
     {
         "id": 3,
-        "name": "Camiseta blanco floral",
+        "name": "Polo blanco floral",
         "price": 89,
         "image": "./image/camiseta_blanco_floral_pacific.jpg",
         "quantity": 0       
     },{
         "id": 4,
-        "name": "Camiseta estampado beige",
+        "name": "Polo estampado beige",
         "price": 89,
         "image": "./image/camiseta_estampado_beige_palyero.jpg",
         "quantity": 0
