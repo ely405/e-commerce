@@ -1,7 +1,7 @@
 :root {
   --bg-dark: #121212;
   --color-white: #fff;
-  --main-color: #AAD500;
+  --main-color: #91B91F;
 }
 
 body {
@@ -31,6 +31,10 @@ button, input {
 
 .p-rel{
   position: relative;
+}
+
+.p-abs{
+  position: absolute;
 }
 
 .bg-main-color{

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?tj38hj');
-  src:  url('fonts/icomoon.eot?tj38hj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?tj38hj') format('truetype'),
-    url('fonts/icomoon.woff?tj38hj') format('woff'),
-    url('fonts/icomoon.svg?tj38hj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?urh6eo');
+  src:  url('fonts/icomoon.eot?urh6eo#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?urh6eo') format('truetype'),
+    url('fonts/icomoon.woff?urh6eo') format('woff'),
+    url('fonts/icomoon.svg?urh6eo#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -25,25 +25,34 @@
 }
 
 .icon-dollar:before {
+  content: "\e907";
+}
+.icon-plus:before {
+  content: "\e900";
+}
+.icon-minus:before {
+  content: "\e901";
+}
+.icon-right-arrow:before {
   content: "\e902";
 }
+.icon-left-arrow:before {
+  content: "\e903";
+}
+.icon-circle:before {
+  content: "\e905";
+}
 .icon-shopping-bag:before {
-  content: "\e900";
-  font-size: 1.5rem;
+  content: "\e906";
 }
 .icon-shopping-cart:before {
   content: "\e93a";
 }
-.icon-trash:before {
-  content: "\e9ac";
-}
-.icon-plus:before {
-  content: "\ea0a";
-}
-.icon-minus:before {
-  content: "\ea0b";
-}
 
 .icon-05x{
   font-size: 0.5rem;
+}
+
+.icon-3x{
+	font-size: 3rem;
 }

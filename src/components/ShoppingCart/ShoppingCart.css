@@ -1,0 +1,24 @@
+.shopping-cart{
+    border-bottom: 2px solid white;
+}
+
+.shopping-cart__image{
+    height: 5rem;
+}
+
+.shopping-cart__quantity{
+    /* height: 50px; */
+    width: 100%;
+}
+
+.shopping-cart__quantity__input, .shopping-cart__button{
+    height: 100%;
+    border: 1px solid white; 
+    max-width: 2.5rem;
+}
+
+/* .shopping-cart__button{
+    border: 1px solid white;    
+    height: 100%;
+    padding: 0.3rem;    
+} */
