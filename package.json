@@ -2,7 +2,7 @@
   "name": "redux-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ely405.github.io/shoppingCart",
+  "homepage": "https://ely405.github.io/e-commerce",
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
@@ -15,12 +15,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.0.0",
     "ed-grid": "^2.1.7",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.3",
     "react": "^15.4.2",
-    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.7",
     "reactstrap": "^5.0.0-beta.3",

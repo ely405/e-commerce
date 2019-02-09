@@ -8,7 +8,7 @@ import './ProductList.css';
 const ProductList = (props) => {
     return (
       <div className='grid-container grid-2345'>
-        <small className='p-03rm' id='productAdded__message'>Producto agregado</small>                                
+        <small className='p-03rm' id='productAdded__message'>Producto agregado</small>
         {props.products.map((product) =>
           <div id={`product-${product.id}`} className="product-container grid-item" key={product.id}>
             <div className='product__imgage-container over-hidden'>
@@ -26,7 +26,7 @@ const ProductList = (props) => {
 
 const mapStateToProps = state => {
   return {
-    products: state.products,
+    game: state.gameStatus,
   }
 }
 
